@@ -65,14 +65,14 @@ contract Metacircle {
         require(bytes(users[msg.sender].username).length != 0, "User does not exist.");
         require(posts[_postId].author != address(0), "Post does not exist.");
         require(!posts[_postId].likedBy[msg.sender], "Already liked this post.");
-        posts[_postId].likes++; //ASSIGNMENT #1
+        posts[_postId].YOUR_CODE_GOES_HERE; //ASSIGNMENT #1
         posts[_postId].likedBy[msg.sender] = true;
     }
 
     // Unliking a post
     function unlikePost(uint _postId) public {
         require(bytes(users[msg.sender].username).length != 0, "User does not exist.");
-        require(posts[_postId].author != address(0), "Post does not exist."); //ASSIGNMENT #2
+        require(posts[_postId].YOUR_CODE_GOES_HERE != address(0), "Post does not exist."); //ASSIGNMENT #2
         require(posts[_postId].likedBy[msg.sender], "You haven't liked this post.");
         posts[_postId].likes--;
         posts[_postId].likedBy[msg.sender] = false;
@@ -87,7 +87,7 @@ contract Metacircle {
         newComment.commentId = commentCount;
         newComment.authorUsername = users[msg.sender].username;  // Store the username of the commenter
         newComment.postId = _postId;
-        newComment.content = _content; //ASSIGNMENT #3
+        newComment.content = YOUR_CODE_GOES_HERE; //ASSIGNMENT #3
         
         // Add comment ID to the post's commentIds array
         posts[_postId].commentIds.push(commentCount);
@@ -96,7 +96,7 @@ contract Metacircle {
     // Check if a post is liked by a user
     function isPostLikedByUser(uint _postId, address _user) public view returns (bool) {
         require(posts[_postId].author != address(0), "Post does not exist.");
-        return posts[_postId].likedBy[_user]; //ASSIGNMENT #4
+        return posts[_postId].likedBy[YOUR_CODE_GOES_HERE]; //ASSIGNMENT #4
     }
 
     // Check if a user is registered
@@ -117,7 +117,7 @@ contract Metacircle {
         uint commentCountForPost = posts[_postId].commentIds.length;
         Comment[] memory postComments = new Comment[](commentCountForPost);
         
-        for (uint i = 0; i < commentCountForPost; i++) { //ASSIGNMENT #5
+        for (uint i = 0; i < YOUR_CODE_GOES_HERE; i++) { //ASSIGNMENT #5
             postComments[i] = comments[posts[_postId].commentIds[i]];
         }
         
